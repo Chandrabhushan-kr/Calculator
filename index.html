@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function insert(num) {
+      document.form1.textview.value = document.form1.textview.value + num;
+    }
+
+    function equal() {
+      var exp = document.form1.textview.value;
+      if (exp) {
+        document.form1.textview.value = eval(exp)
+      }
+    }
+
+    function backspace() {
+      var exp = document.form1.textview.value;
+      document.form1.textview.value = exp.substring(0, exp.length - 1);
+    }
+  </script>
+  <style>
+    body {
+      background-color: #2e284f;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      border: 2px solid black;
+      height: 80vh;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      border-radius: 20px;
+      align-items: center;
+      background-color: #4d3c60;
+    }
+
+    .btn {
+      width: 50px;
+      height: 50px;
+      font-size: 25px;
+      margin: 2px;
+      cursor: pointer;
+      background-color: aliceblue;
+      color: white;
+      color: black;
+      font-weight: 700;
+      border-radius: 10px;
+      
+    }
+
+    .screen {
+      width: 250px;
+      height: 10vh;
+      margin-left: -8px;
+      margin-bottom: 14px;
+      /* border: 2px solid black; */
+     
+    }
+    table{
+      /* border: 2px solid black; */
+      background-color: #716e81;
+    }
+
+    .textview {
+      color: white;
+      width: 100%;
+      height: 10vh;
+      border-radius: 10px;
+      font-size: 35px;
+      text-align: center;
+      background-color: #716e81;
+    }
+
+    table {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="screen">
+      <form action="" name="form1">
+        <input class="textview" name="textview">
+      </form>
+    </div>
+    <div class="keyboard">
+      <table>
+        <tr>
+          <td><input type="button" class="btn" value="C" onclick="form1.textview.value=''"></td>
+          <td><input type="button" class="btn" value="B" onclick="backspace()"></td>
+          <td><input type="button" class="btn" value="/" onclick="insert('/')"></td>
+          <td><input type="button" class="btn" value="x" onclick="insert('*')"></td>
+        </tr>
+        <tr>
+          <td> <input class="btn" type="button" value="7" onclick="insert(7)"> </td>
+          <td> <input class="btn" type="button" value="8" onclick="insert(8)"> </td>
+          <td> <input class="btn" type="button" value="9" onclick="insert(9)"> </td>
+          <td> <input class="btn" type="button" value="-" onclick="insert('-')"> </td>
+        </tr>
+
+        <tr>
+          <td> <input class="btn" type="button" value="4" onclick="insert(4)"> </td>
+          <td> <input class="btn" type="button" value="5" onclick="insert(5)"> </td>
+          <td> <input class="btn" type="button" value="6" onclick="insert(6)"> </td>
+          <td> <input class="btn" type="button" value="+" onclick="insert('+')"> </td>
+        </tr>
+
+        <tr>
+          <td> <input class="btn" type="button" value="1" onclick="insert(1)"> </td>
+          <td> <input class="btn" type="button" value="2" onclick="insert(2)"> </td>
+          <td> <input class="btn" type="button" value="3" onclick="insert(3)"> </td>
+          <td rowspan=5> <input class="btn" style="height: 110px" type="button" value="=" onclick="equal()"> </td>
+        </tr>
+        <tr>
+          <td colspan=2> <input class="btn" style="width: 106px" type="button" value="0" onclick="insert(0)"> </td>
+          <td> <input class="btn" type="button" value="." onclick="insert('.')"> </td>
+        </tr>
+      </table>
+    </div>
+</body>
+
+</html>
